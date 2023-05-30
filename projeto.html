@@ -1,0 +1,147 @@
+html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Meu Gibi</title>
+  <style>
+    body {
+      margin: auto;
+    }
+
+    .comic {
+      width: 700px;
+      height: 1800px;
+      border: 1px solid #000;
+      position: relative;
+      overflow: hidden;
+    }
+    .estender{
+        margin: auto;
+        background-color: rgb(90, 90, 177);
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .page.visible {
+      opacity: 1;
+    }
+
+    .page img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cor{
+      color: rgb(14, 11, 202);
+    }
+    .palm{
+      /*background-color: rgb(90, 90, 177);*/
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .btn.prev {
+      left: 10px;
+    }
+
+    .btn.next {
+      right: 10px;
+    }
+  .ba p {
+    text-align: center;
+ 
+  }
+  </style>
+</head>
+<body class="palm">
+
+    <div class="estender" >
+        <div class="comic">
+          <div class="page visible">
+            <img src="inicio.jpg" width="70%" alt="Página 1">
+          </div>
+          <div class="page">
+            <img src="page1.jpg" alt="Página 2">
+          </div>
+          <div class="page">
+            <img src="page2.jpg" alt="Página 3">
+          </div>
+          <div class="page">
+            <img src="page3.jpg" alt=" página 4">
+          </div>
+          <div class="page">
+            <img src="page4.jpg" alt=" página 5">
+          </div>
+          <div class="page">
+            <img src="page5.jpg" alt=" página 6">
+          </div>
+          <div class="page">
+            <img src="page6.jpg" alt=" página 7">
+          </div>
+          <div class="page">
+            <img src="page7.jpg" alt=" página 8">
+          </div>
+          <div class="page">
+            <img src="page8.jpg" alt=" página 9">
+          </div>
+          <div class="page">
+            <img src="final.jpg" alt=" página 10">
+          </div>
+          <div class="btn prev" onclick="prevPage()">&#8249;</div>
+          <div class="btn next" onclick="nextPage()">&#8250;</div>
+        </div>
+    </div>
+
+  <div class="ba">
+  <footer>
+   <h2> <p class="cor">&copy; DEV| GEAN.</p></h2>
+  </footer>
+  </div>
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        pages[currentPage].classList.remove('visible');
+        currentPage++;
+        pages[currentPage].classList.add('visible');
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        pages[currentPage].classList.remove('visible');
+        currentPage--;
+        pages[currentPage].classList.add('visible');
+      }
+    }
+  </script>
+   </body>
+</html
